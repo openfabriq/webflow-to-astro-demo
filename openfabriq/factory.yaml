@@ -15,7 +15,6 @@ commands:
 checks: [build, test] # parity reads the published Webflow site: agents run it themselves
 
 env:
-  ASTRO_TELEMETRY_DISABLED: "1" # Astro keeps its telemetry setting in ~/.config, which the sandbox of the commands cannot write on Linux
   LEGACY_SITE_URL: https://flowbase-blog-clone.webflow.io # the published Webflow site, on its webflow.io address
 # No CMS access in this test: the site is a public template the factory does not own, so there is no export and no Webflow token.
 
