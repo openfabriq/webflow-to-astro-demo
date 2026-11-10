@@ -1,6 +1,6 @@
 # Decisions
 
-Each section settles one structuring question. Sections 1 to 10 were taken by a maintainer (`eixoweb`) in the decision issues; `migration/decisions/` keeps the full record of each, with the link to the answer. The rule: keep the site as it is for visitors and search engines, at the lowest cost to run and to edit.
+Each section settles one structuring question. Sections 1 to 10 were taken by a maintainer (`eixoweb`) in the decision issues; 11 and 12 were delegated to the planner by the same maintainer on the plan pull request; `migration/decisions/` keeps the full record of each, with the link to the answer. The rule: keep the site as it is for visitors and search engines, at the lowest cost to run and to edit.
 
 ## 1. Content
 - Facts: 0 CMS collections seen; one distinct article repeated in every card and link (`/blog-article`).
@@ -47,10 +47,18 @@ Each section settles one structuring question. Sections 1 to 10 were taken by a 
 - **Choice**: download every image into the repository and process it with `astro:assets`; favicons in `public/`; nothing hotlinked from the Webflow CDN.
 - Build: T02 downloads the images from the published pages (no export exists). The `og:image` is downloaded like the others until a maintainer says otherwise.
 
+## 11. Meta descriptions and `og:image`
+- Facts: `/` and `/blog-article` carry the Flowbase promotional description (copied to `og:description` and `twitter:description`); `/search` has none; `og:image` is `https://assets.flowbase.co/cloneable/opengraph.png`.
+- **Choice** (delegated by the maintainer `eixoweb`, "choisi pour moi"): keep the descriptions verbatim, none added on `/search`; download the `og:image` into the repository (decision 10), no hotlink.
+- Build: T08.
+
+## 12. Webflow redirects
+- Facts: Webflow's redirects are not readable without a token; the 3 URLs are kept (decision 9).
+- **Choice** (delegated by the maintainer `eixoweb`): no redirects. T08 creates `migration/redirects.csv` with its header only, so a maintainer can add rows later.
+- Build: T08.
+
 ## Still open
 
 Only a person can settle these:
-- **Meta descriptions and `og:image`**: keep the Flowbase promotional text and picture verbatim, or supply new ones. Write the answer in this file; T08 waits for it.
-- **Webflow redirects**: copy them from Webflow Site settings > Publishing into `migration/redirects.csv`, or write here that there are none. T08 waits for it.
 - **GitHub Pages deploy**: add `.github/workflows/deploy.yml` and enable Pages (Settings > Pages > Source: GitHub Actions). Part of T09.
 - **Unlinked pages**: the site has no sitemap; a maintainer who knows of other published URLs should add them to the inventory.
