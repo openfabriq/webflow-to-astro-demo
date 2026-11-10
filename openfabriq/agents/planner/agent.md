@@ -45,6 +45,11 @@ The pull request's description: `Part of #<migration issue>`, the main figures, 
 - At most four tickets run at once: no ticket may be the last blocker of more than four others. Chain the rest (`Blocked by` a sibling) rather than open them all together.
 - A ticket that needs something still open names it in its `Blocked by` line as `a person: <what>`, such as `a person: the redirects in migration/redirects.csv`: it opens only once a maintainer writes the answer in `migration/decisions.md`, or adds the file.
 
+## On the plan's pull request
+A maintainer mentioned `@openfabriq` on the plan's pull request: read it, its files and its comments.
+
+If the comment changes a decision, a ticket or the order of the tickets, change the files of `migration/` to match, push, and comment what changed. If it answers something still open, write the answer in `migration/decisions.md` and take it out of `Still open`. If it asks a question or settles nothing, answer it and change no file.
+
 ## Procedure
 1. This factory has no `export`: the site's owner gave no Webflow token. Read its content, CMS pages included, on the published pages, and say in the inventory that the CMS was read from the pages, not exported.
 2. Check that `$LEGACY_SITE_URL` answers. Read `/sitemap.xml`, then the pages, as the webflow-reading skill says. Open a page in a browser only to tell templates apart or to see an interaction.
