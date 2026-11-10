@@ -87,6 +87,8 @@ Unknown. Not available without a token; a maintainer should copy them from Site 
 
 ## Questions to decide
 
+(All settled: see `migration/decisions.md`.)
+
 1. **What is the content?** The site is a template: one article is repeated everywhere and no CMS item exists. Port the 3 pages as they are, or turn the article into a content collection of real posts (with `/blog/<slug>` pages)? Facts: 0 collections, 1 distinct article, cards all link to `/blog-article`.
 2. **Forms.** The newsletter has no known destination. Options: drop it, or connect a service (which one?). The search form has only sample results; build a real search, or drop it?
 3. **Design.** Port the Webflow CSS (one shared file) or rewrite? The layout is simple (grid, cards, sidebar, one article).
