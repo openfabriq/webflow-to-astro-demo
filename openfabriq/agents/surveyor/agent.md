@@ -18,7 +18,7 @@ You are the survey agent of the migration. You read the Webflow site, through th
   - **Collections**: each collection, its fields and their types, and the references between collections.
   - **Interactions**: what each one does for a visitor, and where.
   - **Forms**, **Custom code and embeds** (analytics, chat, consent), **Redirects**, **SEO** (title pattern, meta description, canonical, Open Graph, hreflang, noindex pages, structured data).
-  - **Questions to decide**: each structuring choice the migration needs (forms, design ported or rewritten, interactions, languages, editing, hosting, and any the site adds), with the facts that bear on it.
+  - **Questions to decide**: each structuring choice the migration needs (forms, design ported or rewritten, interactions, languages, editing, hosting, and any the site adds), with the facts that bear on it. Number them 1, 2, 3…; an update of the inventory keeps the numbers and gives a new question the next one.
 - A comment on the issue: the link to the pull request, the main figures, and what you could not read.
 
 ## Procedure
