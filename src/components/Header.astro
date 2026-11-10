@@ -1,0 +1,88 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.svg';
+import { withBase } from '../lib/url';
+
+const links = [
+	{ label: 'Home', href: withBase('/') },
+	{ label: 'Blog', href: withBase('/') },
+];
+---
+
+<div class="navigation">
+	<div class="navigation-container">
+		<a href={withBase('/')} class="brand" aria-label="Home">
+			<Image src={logo} alt="" width={150} height={35} />
+		</a>
+		<nav class="navigation-menu" id="site-menu" aria-label="Main">
+			{links.map((link) => <a href={link.href} class="navigation-link">{link.label}</a>)}
+		</nav>
+		<button
+			type="button"
+			class="menu-button"
+			aria-label="Menu"
+			aria-controls="site-menu"
+			aria-expanded="false"
+		>
+			<span class="menu-icon" aria-hidden="true"></span>
+		</button>
+	</div>
+</div>
+
+<style>
+	.navigation {
+		position: absolute;
+		inset: 0 0 auto;
+		padding: 20px 3%;
+		z-index: 1000;
+	}
+	.navigation-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		max-width: 1100px;
+		margin: 0 auto;
+	}
+	.brand {
+		display: block;
+		line-height: 0;
+	}
+	.navigation-menu {
+		display: flex;
+		align-items: center;
+	}
+	.navigation-link {
+		color: var(--white);
+		padding: 20px 25px;
+		font-size: 17px;
+		font-weight: 700;
+		text-decoration: none;
+	}
+	.menu-button {
+		display: none;
+		padding: 18px;
+		line-height: 1;
+		background: transparent;
+		color: var(--pink);
+		border: 1px solid var(--pink);
+		border-radius: 15px;
+		cursor: pointer;
+	}
+	.menu-icon {
+		display: block;
+		width: 22px;
+		height: 2px;
+		background: currentColor;
+		box-shadow: 0 -7px currentColor, 0 7px currentColor;
+	}
+	@media (max-width: 991px) {
+		.navigation-menu {
+			display: none;
+			background-color: var(--midnight-blue);
+		}
+		.menu-button {
+			display: block;
+		}
+	}
+</style>
