@@ -1,0 +1,31 @@
+name: Webflow to Astro migration
+description: Moves a Webflow site to an Astro site in your own repository, page template by page template, and proves each page against the published Webflow site. Editors keep working in Webflow until the switch; humans settle the decisions, merge, and move the domain.
+repository: openfabriq/webflow-to-astro-demo
+maintainers: [eixoweb]
+model: sonnet
+timezone: Europe/Paris
+
+setup: pnpm install --frozen-lockfile
+
+commands:
+  build: pnpm build
+  test: pnpm test
+  import: pnpm import # webflow-export/ into the site's content; the foundation ticket creates it
+  parity: pnpm parity # compares the Webflow and the Astro pages; the foundation ticket creates it
+checks: [build, test] # parity reads the published Webflow site: agents run it themselves
+
+env:
+  LEGACY_SITE_URL: https://flowbase-blog-clone.webflow.io # the published Webflow site, on its webflow.io address
+# No CMS access in this test: the site is a public template the factory does not own, so there is no export and no Webflow token.
+
+network: # the sites agents and commands reach
+  - packages # the package registries, and GitHub
+  - flowbase-blog-clone.webflow.io # the published site of LEGACY_SITE_URL
+  - "*.website-files.com" # the files the CMS points to
+  - uploads-ssl.webflow.com
+
+limits:
+  usd_per_run: 8
+  usd_per_day: 40
+  minutes_per_run: 60
+  review_rounds: 3
