@@ -24,6 +24,12 @@ network: # the sites agents and commands reach
   - flowbase-blog-clone.webflow.io # the published site of LEGACY_SITE_URL
   - "*.website-files.com" # the files the CMS points to
   - uploads-ssl.webflow.com
+  # What a published Webflow page loads, for the old site's screenshots: jQuery, the font loader, Google Fonts
+  - d3e54v103j8qbb.cloudfront.net
+  - ajax.googleapis.com
+  - fonts.googleapis.com
+  - fonts.gstatic.com
+  - assets.flowbase.co # this template's Open Graph image and widget
 
 limits:
   usd_per_run: 8
