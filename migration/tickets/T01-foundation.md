@@ -1,5 +1,5 @@
 # T01 [foundation] Project skeleton, layout, nav, scripts
-Status: open
+Status: done
 Blocked by: none
 
 Part of #1
