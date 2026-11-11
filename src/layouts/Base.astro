@@ -13,9 +13,11 @@ interface Props {
 	/** Path of the page on the site, e.g. "/blog-article"; the canonical is built from it. */
 	path?: string;
 	ogImage?: string;
+	/** A bare page without the header (the search results page). */
+	plain?: boolean;
 }
 
-const { title, description, path = Astro.url.pathname.replace(Astro.config.base.replace(/\/$/, ''), '') || '/', ogImage } = Astro.props;
+const { title, description, plain = false, path = Astro.url.pathname.replace(Astro.config.base.replace(/\/$/, ''), '') || '/', ogImage } = Astro.props;
 const canonical = new URL(withBase(path), Astro.site).href;
 ---
 
@@ -44,10 +46,14 @@ const canonical = new URL(withBase(path), Astro.site).href;
 		{ogImage && <meta name="twitter:image" content={ogImage} />}
 	</head>
 	<body style={`--bg-shape-01: url(${bgShape01.src}); --bg-shape-02: url(${bgShape02.src});`}>
-		<header class="header">
-			<Header />
-			<slot name="hero" />
-		</header>
+		{
+			!plain && (
+				<header class="header">
+					<Header />
+					<slot name="hero" />
+				</header>
+			)
+		}
 		<slot />
 	</body>
 </html>
