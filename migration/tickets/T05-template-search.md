@@ -1,5 +1,5 @@
 # T05 [template] Search results page
-Status: open
+Status: done
 Blocked by: T03
 
 Part of #1

@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import SearchForm from '../components/SearchForm.astro';
+---
+
+<Base title="Search Results" path="/search" plain>
+	<main class="container">
+		<h1>Search results</h1>
+		<SearchForm variant="plain" />
+	</main>
+</Base>
+
+<style>
+	.container {
+		max-width: 940px;
+		margin: 0 auto;
+	}
+	h1 {
+		margin: 20px 0 38px;
+		color: var(--white); /* white on white, as on the old page */
+		font-size: 38px;
+		font-weight: 700;
+		line-height: 44px;
+	}
+	:global(body) {
+		background-color: var(--white);
+		font-family: Arial, sans-serif;
+	}
+</style>
