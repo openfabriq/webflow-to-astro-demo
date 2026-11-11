@@ -17,7 +17,8 @@ interface Props {
 	plain?: boolean;
 }
 
-const { title, description, plain = false, path = Astro.url.pathname.replace(Astro.config.base.replace(/\/$/, ''), '') || '/', ogImage } = Astro.props;
+const { title, description, plain = false, path = Astro.url.pathname.replace(Astro.config.base.replace(/\/$/, ''), '') || '/', ogImage = withBase('/opengraph.png') } = Astro.props;
+const ogImageUrl = new URL(ogImage, Astro.site).href;
 const canonical = new URL(withBase(path), Astro.site).href;
 ---
 
@@ -30,20 +31,21 @@ const canonical = new URL(withBase(path), Astro.site).href;
 		<title>{title}</title>
 		{description && <meta name="description" content={description} />}
 		<link rel="canonical" href={canonical} />
-		<link rel="icon" type="image/png" sizes="32x32" href={withBase('/favicon-32.png')} />
+		<link rel="icon" type="image/png" sizes="32x32" href={withBase('/favicon-32.png')} media="(prefers-color-scheme: light)" />
+		<link rel="icon" type="image/png" sizes="32x32" href={withBase('/favicon-32.png')} media="(prefers-color-scheme: dark)" />
 		<link rel="icon" type="image/png" sizes="48x48" href={withBase('/favicon-48.png')} />
 		<link rel="icon" type="image/png" sizes="192x192" href={withBase('/favicon-192.png')} />
 		<link rel="icon" type="image/png" sizes="512x512" href={withBase('/favicon-512.png')} />
 		<link rel="apple-touch-icon" sizes="180x180" href={withBase('/apple-touch-icon.png')} />
 		<meta property="og:title" content={title} />
 		{description && <meta property="og:description" content={description} />}
-		{ogImage && <meta property="og:image" content={ogImage} />}
+		<meta property="og:image" content={ogImageUrl} />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={canonical} />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		{description && <meta name="twitter:description" content={description} />}
-		{ogImage && <meta name="twitter:image" content={ogImage} />}
+		<meta name="twitter:image" content={ogImageUrl} />
 	</head>
 	<body style={`--bg-shape-01: url(${bgShape01.src}); --bg-shape-02: url(${bgShape02.src});`}>
 		{

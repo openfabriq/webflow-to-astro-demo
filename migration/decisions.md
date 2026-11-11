@@ -41,7 +41,7 @@ Each section settles one structuring question. Sections 1 to 10 were taken by a 
 
 ## 9. URLs and redirects
 - **Choice**: keep `/`, `/blog-article` and `/search`. No redirect added by this decision; Webflow's own redirects are unknown.
-- Build: T08 reads `migration/redirects.csv`.
+- Build: T08 reads `migration/redirects.csv` (`from,to,status`; header only for now). GitHub Pages has no redirects file, so `astro.config.mjs` passes each row to Astro's `redirects`, which writes a static meta-refresh page per row at build time. A maintainer adds a row, and the page appears.
 
 ## 10. Assets
 - **Choice**: download every image into the repository and process it with `astro:assets`; favicons in `public/`; nothing hotlinked from the Webflow CDN.

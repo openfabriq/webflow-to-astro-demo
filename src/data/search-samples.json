@@ -1,0 +1,42 @@
+[
+	{
+		"title": "You're viewing sample results.",
+		"snippet": "Vivamus vitae arcu vel velit efficitur vestibulum vel in purus. Maecenas euismod sapien eu arcu convallis, vitae vestibulum ipsum maximus. Vestibulum ante ipsum primis in fa…"
+	},
+	{
+		"title": "Add CMS or Business Hosting and index your site to see real search results!",
+		"snippet": "Sed auctor augue id tellus lacinia, nec ultricies est fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod sapien eu arcu convallis, vitae vestibulum ipsum maximus. Donec eu felis at libero consequat sagittis a et urna. Fusc…"
+	},
+	{
+		"title": "Want more from search? Add your idea to our Wishlist",
+		"snippet": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Vestibulum ante i…"
+	},
+	{
+		"title": "Define a search image in Page Settings to add some imagery to results",
+		"snippet": "Donec eu felis at libero consequat sagittis a et urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Vivamus vitae arcu vel velit efficitur vestibulum vel in purus. Maecenas euismod sapien eu arcu convallis, vit…"
+	},
+	{
+		"title": "Search snippets too long? Limit their character count in the Settings panel",
+		"snippet": "Fusce aliquet turpis at orci bibendum, non convallis justo tempor. Praesent nec orci at nulla consequat congue ut non arcu. Integer rutrum ante et nunc venenatis, id…"
+	},
+	{
+		"title": "You can exclude any page from site search in Page Settings",
+		"snippet": "Cras sit amet velit id nulla tempus dictum sit amet eu nisi. Donec eu felis at libero consequat sagittis a et urna. Vivamus vitae arcu vel velit efficitur vestibulum vel in purus. Lorem ipsum d…"
+	},
+	{
+		"title": "Components and Collection Lists are excluded from site search by default",
+		"snippet": "Vivamus vitae arcu vel velit efficitur vestibulum vel in purus. Sed auctor augue id tellus lacinia, nec ultricies est fermentum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Fusce aliquet turpis at orci bibendum,…"
+	},
+	{
+		"title": "Have a super-secret style guide on your site? Exclude it in Page Settings",
+		"snippet": "Vivamus vitae arcu vel velit efficitur vestibulum vel in purus. Sed auctor augue id tellus lacinia, nec ultricies est fermentum. Vivamus vitae arcu vel velit efficitur ve…"
+	},
+	{
+		"title": "Highlight search terms in results in the Settings tab",
+		"snippet": "Vivamus vitae arcu vel velit efficitur vestibulum vel in purus. Sed auctor augue id tellus lacinia, nec ultricies est fermentum. Cras sit amet velit id nulla tempus dictum sit amet eu nisi. Cras sit amet velit i…"
+	},
+	{
+		"title": "Pro tip: Tell people what they can search for in your search input's placeholder text!",
+		"snippet": "Fusce aliquet turpis at orci bibendum, non convallis justo tempor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Sed auctor augue id tellus lacinia, nec ultricies est fermentum. Sed auctor augue id tell…"
+	}
+]
