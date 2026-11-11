@@ -1,5 +1,5 @@
 # T03 [feature] Newsletter and search form components
-Status: open
+Status: done
 Blocked by: T01
 
 Part of #1
