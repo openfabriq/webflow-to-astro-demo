@@ -1,0 +1,49 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+	title: string;
+	href: string;
+	image: ImageMetadata;
+	alt?: string;
+}
+
+const { title, href, image, alt = '' } = Astro.props;
+---
+
+<a href={href} class="featured-item">
+	<Image class="feature-image" src={image} alt={alt} width={90} />
+	<div class="title-small">{title}</div>
+</a>
+
+<style>
+	.featured-item {
+		display: flex;
+		align-items: center;
+		margin-bottom: 20px;
+		color: var(--midnight-blue);
+		text-decoration: none;
+		transition: color 0.2s;
+	}
+	.featured-item:hover {
+		color: var(--slate-blue);
+	}
+	.feature-image {
+		margin-right: 20px;
+		border-radius: 15px;
+		box-shadow: 0 22px 34px #00000029;
+	}
+	.title-small {
+		margin-bottom: 4px;
+		font-weight: 700;
+	}
+	@media (max-width: 479px) {
+		.featured-item {
+			flex-wrap: wrap;
+		}
+		.feature-image {
+			margin-bottom: 10px;
+		}
+	}
+</style>

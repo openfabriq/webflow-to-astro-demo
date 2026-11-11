@@ -1,0 +1,168 @@
+---
+import { getEntry, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Newsletter from '../components/Newsletter.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import { withBase } from '../lib/url';
+
+const entry = await getEntry('articles', 'blog-article');
+if (!entry) throw new Error('articles/blog-article is missing');
+const { title, hero, heroAlt, author, authorPhoto, authorPhotoAlt, date, featureImages } = entry.data;
+const { Content } = await render(entry);
+---
+
+<Base
+	title="Cloneable Blog Template – Blog Article | Flowbase Cloneable"
+	description="View the blog article page for the Cloneable Blog Template cloneable, free to clone at Flowbase."
+	path="/blog-article"
+>
+	<div slot="hero" class="hero-container">
+		<h1>{title}</h1>
+		<div class="profile-block">
+			<Image class="profile-picture" src={authorPhoto} alt={authorPhotoAlt} width={50} />
+			<div>
+				<div class="author">{author}</div>
+				<div class="date">{date}</div>
+			</div>
+		</div>
+	</div>
+	<main class="blog-section">
+		<div class="container">
+			<Image class="blog-hero-image" src={hero} alt={heroAlt} widths={[500, 1080, 1600, 2000]} sizes="(max-width: 1170px) 94vw, 1110px" />
+			<div class="blog-grid">
+				<article class="content-left">
+					<Content />
+				</article>
+				<aside class="content-right">
+					<div class="stick-wrapper">
+						<Newsletter />
+						<div class="featured-articles">
+							<div class="title-large">Related articles</div>
+							<div class="featured-block">
+								{featureImages.map((image) => (
+									<ArticleCard title={title} href={withBase('/blog-article')} image={image} />
+								))}
+							</div>
+						</div>
+					</div>
+				</aside>
+			</div>
+		</div>
+	</main>
+</Base>
+
+<style is:global>
+	/* the article header runs taller than the home one, so the hero image can overlap it */
+	.header { min-height: 748px; padding-bottom: 162px; }
+	@media (max-width: 767px) {
+		.header { min-height: 680px; }
+	}
+</style>
+
+<style>
+	.hero-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 0 20px;
+	}
+	h1 {
+		margin: 0;
+		max-width: 650px;
+		color: var(--white);
+		font-size: 60px;
+		font-weight: 700;
+		line-height: 1.1;
+		text-align: center;
+	}
+	.profile-block {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 20px;
+	}
+	.profile-picture {
+		margin-right: 10px;
+		border-radius: 100px;
+	}
+	.author {
+		margin-bottom: 4px;
+		color: var(--white);
+		font-weight: 700;
+	}
+	.date {
+		color: #ffffff80;
+		line-height: 120%;
+	}
+	.blog-section {
+		padding: 0 3% 132px;
+	}
+	.container {
+		width: 100%;
+		max-width: 1110px;
+		margin: 0 auto;
+	}
+	.blog-hero-image {
+		display: block;
+		width: 100%;
+		height: auto;
+		position: relative;
+		margin: -220px 0 80px;
+		border-radius: 15px;
+		box-shadow: 0 22px 34px #0000000f;
+	}
+	.blog-grid {
+		display: grid;
+		grid-template-columns: 1fr 0.4fr;
+		column-gap: 40px;
+	}
+	.content-left :global(p) {
+		margin: 0 0 40px;
+		color: var(--midnight-blue);
+		font-size: 17px;
+		line-height: 30px;
+	}
+	.content-left :global(h2) {
+		margin: 40px 0 20px;
+		color: var(--midnight-blue);
+		font-size: 32px;
+		line-height: 1.1;
+	}
+	.content-left :global(h3) {
+		margin: 0 0 30px;
+		font-size: 24px;
+		line-height: 140%;
+	}
+	.content-left :global(img) {
+		max-width: 100%;
+		height: auto;
+	}
+	.title-large {
+		margin-bottom: 20px;
+		color: var(--midnight-blue);
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 130%;
+	}
+	.featured-block {
+		margin-top: 10px;
+	}
+	@media (max-width: 991px) {
+		.blog-grid {
+			grid-template-columns: 1fr 0.6fr;
+			column-gap: 22px;
+		}
+	}
+	@media (max-width: 767px) {
+		h1 { font-size: 55px; }
+		.blog-hero-image { margin-top: -100px; }
+		.blog-grid {
+			grid-template-columns: 1fr;
+			row-gap: 62px;
+		}
+	}
+	@media (max-width: 479px) {
+		h1 { font-size: 44px; }
+	}
+</style>

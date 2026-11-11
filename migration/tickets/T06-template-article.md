@@ -1,5 +1,5 @@
 # T06 [template] Blog article page
-Status: open
+Status: done
 Blocked by: T02, T03
 
 Part of #1
