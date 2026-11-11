@@ -1,5 +1,5 @@
 # T02 [content-type] Article collection, mapper and import
-Status: open
+Status: done
 Blocked by: T01
 
 Part of #1
