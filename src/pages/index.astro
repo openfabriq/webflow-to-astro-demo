@@ -1,7 +1,16 @@
 ---
+import { getEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Newsletter from '../components/Newsletter.astro';
 import SearchForm from '../components/SearchForm.astro';
+import BlogCard from '../components/BlogCard.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import { withBase } from '../lib/url';
+
+const entry = await getEntry('articles', 'blog-article');
+if (!entry) throw new Error('articles/blog-article is missing');
+const { title, summary, author, authorPhoto, authorPhotoAlt, date, cardImages, featureImages } = entry.data;
+const href = withBase('/blog-article');
 ---
 
 <Base
@@ -13,24 +22,60 @@ import SearchForm from '../components/SearchForm.astro';
 		<h1>Our blog</h1>
 		<div class="bar-big"><div class="bar-small"></div></div>
 	</div>
-	<aside class="sidebar">
-		<div class="stick-wrapper">
-			<SearchForm />
-			<Newsletter />
+	<main class="content-section">
+		<div class="container">
+			<div class="blog-grid">
+				<div class="content-left">
+					{cardImages.map((image) => (
+						<BlogCard {title} {summary} {href} {image} {author} {authorPhoto} {authorPhotoAlt} {date} />
+					))}
+				</div>
+				<aside class="content-right">
+					<div class="stick-wrapper">
+						<SearchForm />
+						<Newsletter />
+						<div class="featured-articles">
+							<div class="title-large">Featured</div>
+							<div class="featured-block">
+								{featureImages.map((image) => <ArticleCard {title} {href} {image} />)}
+							</div>
+						</div>
+					</div>
+				</aside>
+			</div>
 		</div>
-	</aside>
+	</main>
 </Base>
 
 <style>
-	.sidebar {
-		width: 100%;
-		max-width: 300px;
-		margin: 60px auto;
-		padding: 0 20px;
+	.content-section {
+		padding: 132px 3%;
 	}
-	.stick-wrapper {
-		position: sticky;
-		top: 60px;
+	.container {
+		width: 100%;
+		max-width: 1110px;
+		margin: 0 auto;
+	}
+	.blog-grid {
+		display: grid;
+		grid-template-columns: 1fr 0.4fr;
+		column-gap: 40px;
+	}
+	.content-left {
+		display: flex;
+		flex-direction: column;
+		row-gap: 40px;
+		align-items: center;
+	}
+	.title-large {
+		margin-bottom: 20px;
+		color: var(--midnight-blue);
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 130%;
+	}
+	.featured-block {
+		margin-top: 10px;
 	}
 	.title-centre {
 		display: flex;
@@ -59,7 +104,18 @@ import SearchForm from '../components/SearchForm.astro';
 		border-radius: 100px;
 		background-image: linear-gradient(to right, #fb9ac100, var(--pink));
 	}
+	@media (max-width: 991px) {
+		.blog-grid {
+			grid-template-columns: 1fr 0.6fr;
+			column-gap: 22px;
+		}
+	}
 	@media (max-width: 767px) {
+		.content-section { padding: 92px 3%; }
+		.blog-grid {
+			grid-template-columns: 1fr;
+			row-gap: 62px;
+		}
 		h1 { font-size: 55px; }
 	}
 	@media (max-width: 479px) {

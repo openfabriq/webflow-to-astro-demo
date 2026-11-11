@@ -1,5 +1,5 @@
 # T07 [template] Home / blog list
-Status: open
+Status: done
 Blocked by: T02, T03, T06
 
 Part of #1
