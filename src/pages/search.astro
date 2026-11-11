@@ -1,16 +1,41 @@
 ---
 import Base from '../layouts/Base.astro';
 import SearchForm from '../components/SearchForm.astro';
+import samples from '../data/search-samples.json';
+import { withBase } from '../lib/url';
+
+const host = 'flowbase-blog-clone.webflow.io';
 ---
 
 <Base title="Search Results" path="/search" plain>
 	<main class="container">
 		<h1>Search results</h1>
 		<SearchForm variant="plain" />
+		<div class="results">
+			{samples.map((item) => (
+				<div class="result">
+					<a href={withBase('/sample-result')}>{item.title}</a>
+					<div>{host}/sample-result</div>
+					<p>{item.snippet}</p>
+				</div>
+			))}
+		</div>
 	</main>
 </Base>
 
 <style>
+	.results {
+		margin-top: 15px;
+	}
+	.result {
+		margin-bottom: 10px;
+	}
+	.result a {
+		color: #0000ee;
+	}
+	.result p {
+		margin: 0;
+	}
 	.container {
 		max-width: 940px;
 		margin: 0 auto;
