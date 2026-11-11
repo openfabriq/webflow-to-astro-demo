@@ -1,67 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
 import SearchForm from '../components/SearchForm.astro';
-
-// Sample results of the old page (Webflow's Free plan has no real search).
-const results = [
-	{
-		title: "You're viewing sample results.",
-		text: 'Vivamus vitae arcu vel velit efficitur vestibulum vel in purus. Maecenas euismod sapien eu arcu convallis, vitae vestibulum ipsum maximus. Vestibulum ante ipsum primis in fa…',
-	},
-	{
-		title: 'Add CMS or Business Hosting and index your site to see real search results!',
-		text: 'Sed auctor augue id tellus lacinia, nec ultricies est fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod sapien eu arcu convallis, vitae vestibulum ipsum maximus. Donec eu felis at libero consequat sagittis a et urna. Fusc…',
-	},
-	{
-		title: 'Want more from search? Add your idea to our Wishlist',
-		text: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Vestibulum ante i…',
-	},
-	{
-		title: 'Define a search image in Page Settings to add some imagery to results',
-		text: 'Donec eu felis at libero consequat sagittis a et urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Vivamus vitae arcu vel velit efficitur vestibulum vel in purus. Maecenas euismod sapien eu arcu convallis, vit…',
-	},
-	{
-		title: 'Search snippets too long? Limit their character count in the Settings panel',
-		text: 'Fusce aliquet turpis at orci bibendum, non convallis justo tempor. Praesent nec orci at nulla consequat congue ut non arcu. Integer rutrum ante et nunc venenatis, id…',
-	},
-	{
-		title: 'You can exclude any page from site search in Page Settings',
-		text: 'Cras sit amet velit id nulla tempus dictum sit amet eu nisi. Donec eu felis at libero consequat sagittis a et urna. Vivamus vitae arcu vel velit efficitur vestibulum vel in purus. Lorem ipsum d…',
-	},
-	{
-		title: 'Components and Collection Lists are excluded from site search by default',
-		text: 'Vivamus vitae arcu vel velit efficitur vestibulum vel in purus. Sed auctor augue id tellus lacinia, nec ultricies est fermentum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Fusce aliquet turpis at orci bibendum,…',
-	},
-	{
-		title: 'Have a super-secret style guide on your site? Exclude it in Page Settings',
-		text: 'Vivamus vitae arcu vel velit efficitur vestibulum vel in purus. Sed auctor augue id tellus lacinia, nec ultricies est fermentum. Vivamus vitae arcu vel velit efficitur ve…',
-	},
-	{
-		title: 'Highlight search terms in results in the Settings tab',
-		text: 'Vivamus vitae arcu vel velit efficitur vestibulum vel in purus. Sed auctor augue id tellus lacinia, nec ultricies est fermentum. Cras sit amet velit id nulla tempus dictum sit amet eu nisi. Cras sit amet velit i…',
-	},
-	{
-		title: "Pro tip: Tell people what they can search for in your search input's placeholder text!",
-		text: 'Fusce aliquet turpis at orci bibendum, non convallis justo tempor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Sed auctor augue id tellus lacinia, nec ultricies est fermentum. Sed auctor augue id tell…',
-	},
-];
 ---
 
 <Base title="Search Results" path="/search" plain>
 	<main class="container">
 		<h1>Search results</h1>
 		<SearchForm variant="plain" />
-		<div class="results">
-			{
-				results.map((r) => (
-					<div class="result">
-						<span class="result-title">{r.title}</span>
-						<div class="result-url">flowbase-blog-clone.webflow.io/sample-result</div>
-						<p>{r.text}</p>
-					</div>
-				))
-			}
-		</div>
 	</main>
 </Base>
 
@@ -80,15 +25,5 @@ const results = [
 	:global(body) {
 		background-color: var(--white);
 		font-family: Arial, sans-serif;
-	}
-	.result-title {
-		color: #0000ee;
-		text-decoration: underline;
-	}
-	.result-url {
-		color: #333;
-	}
-	p {
-		margin: 0 0 10px;
 	}
 </style>
