@@ -10,7 +10,7 @@ setup: pnpm install --frozen-lockfile
 commands:
   build: pnpm build
   test: pnpm test
-  import: pnpm import # webflow-export/ into the site's content; the foundation ticket creates it
+  import: pnpm run import # webflow-export/ into the site's content; the foundation ticket creates it
   parity: pnpm parity # compares the Webflow and the Astro pages; the foundation ticket creates it
 checks: [build, test] # parity reads the published Webflow site: agents run it themselves
 

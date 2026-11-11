@@ -12,7 +12,7 @@ Every agent of the migration reads this skill. Keep it short and prescriptive.
   - `src/content.config.ts`: one collection per Webflow CMS collection, with a Zod schema;
   - `src/content/<collection>/`: the imported entries, committed;
   - `src/lib/mappers/<collection>.ts`: one mapper per collection, a pure function from a Webflow item to an entry (references resolved, rich text cleaned of Webflow's classes), tested in `<collection>.test.ts` on samples saved in `migration/samples/`;
-  - `scripts/import.ts`, run by `pnpm import`: reads `webflow-export/`, runs every mapper, writes the entries and copies the files they use from `webflow-export/assets/`; it never calls the network, and running it twice gives the same files;
+  - `scripts/import.ts`, run by `pnpm run import`: reads `webflow-export/`, runs every mapper, writes the entries and copies the files they use from `webflow-export/assets/`; it never calls the network, and running it twice gives the same files;
   - `webflow-export/` and `parity-report/` are in `.gitignore`;
   - `src/layouts/`, `src/components/`, `src/pages/`: one component per block a page template repeats, built once.
 - URLs: the new site keeps every old URL (trailing slash included), or the `seo` ticket redirects it. Never change a URL silently.
