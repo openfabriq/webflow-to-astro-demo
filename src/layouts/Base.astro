@@ -74,6 +74,12 @@ const canonical = new URL(withBase(path), Astro.site).href;
 		font-size: 14px;
 		line-height: 20px;
 	}
+	.stick-wrapper {
+		position: sticky;
+		top: 60px;
+		/* keeps the sticky box from stretching to the height of its grid row (T07) */
+		align-self: flex-start;
+	}
 	.header {
 		position: relative;
 		display: flex;

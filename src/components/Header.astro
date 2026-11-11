@@ -29,6 +29,14 @@ const links = [
 	</div>
 </div>
 
+<script>
+	const button = document.querySelector<HTMLButtonElement>('.menu-button');
+	button?.addEventListener('click', () => {
+		const open = button.getAttribute('aria-expanded') === 'true';
+		button.setAttribute('aria-expanded', String(!open));
+	});
+</script>
+
 <style>
 	.navigation {
 		position: absolute;
@@ -83,6 +91,23 @@ const links = [
 		}
 		.menu-button {
 			display: block;
+		}
+		.menu-button[aria-expanded='true'] {
+			background-color: transparent;
+			color: #fff;
+		}
+		.navigation-container {
+			flex-wrap: wrap;
+		}
+		.menu-button[aria-expanded='true'] ~ .navigation-menu,
+		.navigation-menu:has(~ .menu-button[aria-expanded='true']) {
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+			order: 3;
+			width: 100%;
+			text-align: center;
+			justify-content: center;
 		}
 	}
 </style>

@@ -1,5 +1,5 @@
 # T04 [feature] Mobile menu toggle and sticky sidebar
-Status: open
+Status: done
 Blocked by: T01
 
 Part of #1
