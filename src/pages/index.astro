@@ -1,5 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
+import Newsletter from '../components/Newsletter.astro';
+import SearchForm from '../components/SearchForm.astro';
 ---
 
 <Base
@@ -11,9 +13,25 @@ import Base from '../layouts/Base.astro';
 		<h1>Our blog</h1>
 		<div class="bar-big"><div class="bar-small"></div></div>
 	</div>
+	<aside class="sidebar">
+		<div class="stick-wrapper">
+			<SearchForm />
+			<Newsletter />
+		</div>
+	</aside>
 </Base>
 
 <style>
+	.sidebar {
+		width: 100%;
+		max-width: 300px;
+		margin: 60px auto;
+		padding: 0 20px;
+	}
+	.stick-wrapper {
+		position: sticky;
+		top: 60px;
+	}
 	.title-centre {
 		display: flex;
 		flex-direction: column;

@@ -1,0 +1,91 @@
+---
+import { Image } from 'astro:assets';
+import paperPlane from '../assets/paper-plane.png';
+import arrow from '../assets/arrow.svg';
+
+interface Props {
+	/** Id of the email input; unique on the page. */
+	id?: string;
+}
+
+const { id = 'newsletter-email' } = Astro.props;
+---
+
+<div class="subscription" style={`--paper-plane: url(${paperPlane.src})`}>
+	<div class="title-large">Subscribe to our newsletter</div>
+	<form class="form" method="get">
+		<label class="sr-only" for={id}>Email address</label>
+		<input class="text-field" id={id} name="email" type="email" maxlength="256" placeholder="Email address" required />
+		<div class="submit-wrap">
+			<button type="submit" class="submit-button" aria-label="Subscribe"></button>
+			<Image class="arrow" src={arrow} alt="" width={9} height={12} />
+		</div>
+	</form>
+</div>
+
+<style>
+	.subscription {
+		margin-bottom: 40px;
+		padding: 100px 20px 20px;
+		border-radius: 15px;
+		background-color: var(--white);
+		background-image: var(--paper-plane);
+		background-position: -20px -30px;
+		background-repeat: no-repeat;
+		background-size: 125px;
+		box-shadow: 0 12px 14px #0000000f;
+	}
+	.title-large {
+		margin-bottom: 20px;
+		color: var(--midnight-blue);
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 130%;
+	}
+	.form {
+		display: flex;
+		margin: 0;
+		border-radius: 15px;
+		background-color: var(--white-smoke);
+	}
+	.text-field {
+		flex: 1;
+		min-width: 0;
+		height: 60px;
+		padding: 20px 0 20px 20px;
+		border: 0;
+		background-color: transparent;
+		color: #333;
+		font: inherit;
+		font-size: 15px;
+	}
+	.text-field::placeholder {
+		color: var(--dark-grey);
+	}
+	.submit-wrap {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.submit-button {
+		width: 60px;
+		height: 60px;
+		padding: 0;
+		border: 0;
+		background-color: transparent;
+		cursor: pointer;
+	}
+	.arrow {
+		position: absolute;
+		pointer-events: none;
+	}
+	.sr-only {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip-path: inset(50%);
+		white-space: nowrap;
+	}
+</style>
