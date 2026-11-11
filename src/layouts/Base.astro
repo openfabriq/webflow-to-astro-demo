@@ -76,7 +76,8 @@ const canonical = new URL(withBase(path), Astro.site).href;
 	}
 	.stick-wrapper {
 		position: sticky;
-		top: 20px;
+		top: 60px;
+		/* keeps the sticky box from stretching to the height of its grid row (T07) */
 		align-self: flex-start;
 	}
 	.header {
